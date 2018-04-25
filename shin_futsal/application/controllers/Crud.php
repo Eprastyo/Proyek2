@@ -51,5 +51,15 @@ Class Crud extends CI_Controller{
 					redirect('Crud/index');
                 }
         }
+
+    public function hapus($id_lapangan){
+    	$where = array('id_lapangan' => $id_lapangan);
+    	$this->m_data->hapus_data($where,'t_lapangan');
+    	redirect('Crud/index');
+    }
+    public function lihat ($lihat){
+    	$where = array('id_lapangan' => $id_lapangan);
+    	$this->m_data->lihat_gambar($where,'t_lapangan');
+    }
 }
 ?>

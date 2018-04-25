@@ -17,6 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('assets/css/sb-admin.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.css')?>" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/source/jquery.fancybox.css')?>" media="screen">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -158,11 +160,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td><?php echo $hasil->harga_sewa ?></td>
                 <td><?php echo $hasil->keterangan ?></td>
                 <td>
-                <center><img src="<?php echo base_url() . 'gambar/'.$hasil->gambar  ?>" width="150px"/></center>  
+
+                  <center>
+                      <a href="<?php echo base_url() . 'gambar/'.$hasil->gambar ?>" class="perbesar"><img src="<?php echo base_url() . 'gambar/'.$hasil->gambar ?>" height="150px" width="200px" class="img-thumbnail;modal-content"/></a>
+                  </center>
+
                 </td>
                 <td>
-                    <input class="btn btn-danger btn-sm" type="submit" value="Hapus">
-                    <input class="btn btn-primary btn-sm" type="submit" value="Edit">
+                  <center>
+                     <a href="<?php echo base_url('Crud/hapus/'.$hasil->id_lapangan);?>"><button class="btn btn-danger btn-sm">Hapus</button></a>
+                     <a href="<?php echo base_url('Crud/hapus/'.$hasil->id_lapangan);?>"><button class="btn btn-primary btn-sm">Edit</button></a>   
+                  </center>
+                 
+                  
                 </td>
                 </tr>
               <?php 
@@ -218,6 +228,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo base_url ('assets/js/sb-admin.min.js')?>"></script>
     <!-- Custom scripts for this page-->
     <script src="<?php echo base_url ('assets/js/sb-admin-datatables.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url ('assets/lib/jquery-1.10.1.min.js')?>"></script>
+    <script type="text/javascript" src="<?php echo base_url ('assets/source/jquery.fancybox.js')?>"></script>
   </div>
 </body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".perbesar").fancybox();
+  })
+</script>
 </html>
