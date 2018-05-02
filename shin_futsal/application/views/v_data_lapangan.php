@@ -124,7 +124,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Lapangan</div>
+          <i class="fa fa-table"></i> Data Lapangan
+        </div>
+        <div class="card-header">
+          <a href="<?=site_url('Crud/tambah')?>"" class="btn btn-info btn-lg"> <i class="fal fa-plus-hexagon"></i>Tambah Lapangan
+          </a>
+        </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -169,10 +174,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td>
                   <center>
                      <a href="<?php echo base_url('Crud/hapus/'.$hasil->id_lapangan);?>"><button class="btn btn-danger btn-sm">Hapus</button></a>
-                     <a href="<?php echo base_url('Crud/hapus/'.$hasil->id_lapangan);?>"><button class="btn btn-primary btn-sm">Edit</button></a>   
+                     <a href="<?php echo base_url('Crud/edit/'.$hasil->id_lapangan);?>"><button class="btn btn-primary btn-sm">Edit</button></a>   
                   </center>
-                 
-                  
                 </td>
                 </tr>
               <?php 

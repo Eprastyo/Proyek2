@@ -57,9 +57,31 @@ Class Crud extends CI_Controller{
     	$this->m_data->hapus_data($where,'t_lapangan');
     	redirect('Crud/index');
     }
-    public function lihat ($lihat){
-    	$where = array('id_lapangan' => $id_lapangan);
-    	$this->m_data->lihat_gambar($where,'t_lapangan');
+
+    public function edit($id_lapangan){
+    	$where = array('id_lapangan' => $id_lapangan );
+    	$data['t_lapangan'] = $this->m_data->edit_data($where,'t_lapangan')->result();
+    	$this->load->view('v_edit_lapangan',$data);
     }
+
+    function update(){
+	$id = $this->input->post('id_lapangan');
+	$nama = $this->input->post('nama');
+	$harga_sewa = $this->input->post('harga_sewa');
+	$keterangan = $this->input->post('keterangan');
+ 
+	$data = array(
+		'nama' => $nama,
+		'harga_sewa' => $harga_sewa,
+		'keterangan' => $keterangan
+	);
+ 
+	$where = array(
+		'id_lapangan' => $id
+	);
+ 
+	$this->m_data->update_data($where,$data,'t_lapangan');
+	redirect('crud/index');
+}
 }
 ?>
